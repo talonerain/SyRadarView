@@ -99,6 +99,7 @@ public class SyRadarView extends View {
         }
     }
 
+    //绘制文字
     private void drawText(Canvas canv) {
         Paint textPaint = new Paint();
         textPaint.setTextSize(32);
