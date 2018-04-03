@@ -35,5 +35,10 @@ public class MainActivity extends Activity {
                 return true;
             }
         });
+
+        String[] texts = {"李白","阿珂","孙悟空","赵云","兰陵王","娜可露露"};
+        Double[] percents = {0.82, 0.65, 0.72, 0.3, 0.5, 0.2};
+        radarView.setTextList(texts);
+        radarView.setPercentList(percents);
     }
 }

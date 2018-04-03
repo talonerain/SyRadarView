@@ -6,9 +6,10 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="自定义雷达图：" />
+        android:text="王者农药刺客人气榜：" />
 
     <com.lsy.radarview.SyRadarView
         android:id="@+id/radarView"

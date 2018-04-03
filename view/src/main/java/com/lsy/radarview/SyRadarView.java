@@ -19,8 +19,8 @@ public class SyRadarView extends View {
     private float mAngle;    //每条边的圆心角
     private Point mCenter;  //中心位置坐标
     private float mRadius;   //圆半径
-    private String[] texts = {"李白","阿珂","孙悟空","赵云","兰陵王","娜可露露"};
-    private Double[] percents = {0.91, 0.35, 0.12, 0.8, 0.5, 0.6};
+    private String[] mTexts;    //显示文字
+    private Double[] mPercents; //所占比重
 
     public SyRadarView(Context context) {
         super(context);
@@ -35,6 +35,14 @@ public class SyRadarView extends View {
     public SyRadarView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
+    }
+
+    public void setTextList(String[] strs) {
+        this.mTexts = strs;
+    }
+
+    public void setPercentList(Double[] percents) {
+        this.mPercents = percents;
     }
 
     public void init() {
@@ -113,27 +121,27 @@ public class SyRadarView extends View {
             if (i == 0) {
                 //上下顶点与中心点横坐标相同，需设置从中间绘制文字，默认是从左下角绘制
                 textPaint.setTextAlign(Paint.Align.CENTER);
-                canv.drawText(texts[i], x, y, textPaint);
+                canv.drawText(mTexts[i], x, y, textPaint);
             } else if((mSideCount % 2 == 0 && mSideCount / 2 == i)){
                 //下顶点需要将文字向下微调
                 textPaint.setTextAlign(Paint.Align.CENTER);
-                canv.drawText(texts[i], x, y + fontHeight / 2, textPaint);
+                canv.drawText(mTexts[i], x, y + fontHeight / 2, textPaint);
             } else if (mAngle * i >= 0 && mAngle * i <= Math.PI / 2) {
                 //第1象限和第4象限文字靠右，从左下角绘制
                 textPaint.setTextAlign(Paint.Align.LEFT);
-                canv.drawText(texts[i], x, y, textPaint);
+                canv.drawText(mTexts[i], x, y, textPaint);
             } else if (mAngle * i >= 3 * Math.PI / 2 && mAngle * i <= Math.PI * 2) {
                 //第2象限和第3象限文字靠左，从右下角绘制
                 textPaint.setTextAlign(Paint.Align.RIGHT);
-                canv.drawText(texts[i], x, y, textPaint);
+                canv.drawText(mTexts[i], x, y, textPaint);
             } else if (mAngle * i > Math.PI / 2 && mAngle * i <= Math.PI) {
                 //第4象限，因为从左下绘制，所以需要将文字向下微调
                 textPaint.setTextAlign(Paint.Align.LEFT);
-                canv.drawText(texts[i], x, y + fontHeight / 2, textPaint);
+                canv.drawText(mTexts[i], x, y + fontHeight / 2, textPaint);
             } else if (mAngle * i >= Math.PI && mAngle * i < 3 * Math.PI / 2) {
                 //第3象限，因为从左下绘制，所以需要将文字向下微调
                 textPaint.setTextAlign(Paint.Align.RIGHT);
-                canv.drawText(texts[i], x, y + fontHeight / 2, textPaint);
+                canv.drawText(mTexts[i], x, y + fontHeight / 2, textPaint);
             }
         }
     }
@@ -149,10 +157,10 @@ public class SyRadarView extends View {
         float r = mRadius / mLayerCount;
         for (int i = 0; i < mSideCount; i++) {
             if (i == 0) {
-                path.moveTo(mCenter.x, (float) (mCenter.y - r - (mRadius - r) * percents[i]));
+                path.moveTo(mCenter.x, (float) (mCenter.y - r - (mRadius - r) * mPercents[i]));
             } else {
-                float x = (float) (mCenter.x + Math.sin(mAngle * i) * (percents[i] * (mRadius - r) + r));
-                float y = (float) (mCenter.y - Math.cos(mAngle * i) * (percents[i] * (mRadius - r) + r));
+                float x = (float) (mCenter.x + Math.sin(mAngle * i) * (mPercents[i] * (mRadius - r) + r));
+                float y = (float) (mCenter.y - Math.cos(mAngle * i) * (mPercents[i] * (mRadius - r) + r));
                 path.lineTo(x, y);
             }
         }
