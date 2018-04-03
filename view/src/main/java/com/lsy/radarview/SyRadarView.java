@@ -19,6 +19,7 @@ public class SyRadarView extends View {
     private float mAngle;    //每条边的圆心角
     private Point mCenter;  //中心位置坐标
     private float mRadius;   //圆半径
+    private String[] titles = {"李白","阿珂","孙悟空","赵云","兰陵王","娜可露露"};
 
     public SyRadarView(Context context) {
         super(context);
@@ -98,10 +99,48 @@ public class SyRadarView extends View {
         }
     }
 
+    private void drawText(Canvas canv) {
+        Paint textPaint = new Paint();
+        textPaint.setTextSize(32);
+        textPaint.setColor(Color.RED);
+        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+        float fontHeight = fontMetrics.descent - fontMetrics.ascent;
+        for (int i = 0; i < mSideCount; i++) {
+            float x = (float) (mCenter.x + (mRadius + fontHeight / 2) * Math.sin(mAngle * i));
+            float y = (float) (mCenter.y - (mRadius + fontHeight / 2) * Math.cos(mAngle * i));
+            if (i == 0) {
+                //上下顶点与中心点横坐标相同，需设置从中间绘制文字，默认是从左下角绘制
+                textPaint.setTextAlign(Paint.Align.CENTER);
+                canv.drawText(titles[i], x, y, textPaint);
+            } else if((mSideCount % 2 == 0 && mSideCount / 2 == i)){
+                //下顶点需要将文字向下微调
+                textPaint.setTextAlign(Paint.Align.CENTER);
+                canv.drawText(titles[i], x, y + fontHeight / 2, textPaint);
+            } else if (mAngle * i >= 0 && mAngle * i <= Math.PI / 2) {
+                //第1象限和第4象限文字靠右，从左下角绘制
+                textPaint.setTextAlign(Paint.Align.LEFT);
+                canv.drawText(titles[i], x, y, textPaint);
+            } else if (mAngle * i >= 3 * Math.PI / 2 && mAngle * i <= Math.PI * 2) {
+                //第2象限和第3象限文字靠左，从右下角绘制
+                textPaint.setTextAlign(Paint.Align.RIGHT);
+                canv.drawText(titles[i], x, y, textPaint);
+            } else if (mAngle * i > Math.PI / 2 && mAngle * i <= Math.PI) {
+                //第4象限，因为从左下绘制，所以需要将文字向下微调
+                textPaint.setTextAlign(Paint.Align.LEFT);
+                canv.drawText(titles[i], x, y + fontHeight / 2, textPaint);
+            } else if (mAngle * i >= Math.PI && mAngle * i < 3 * Math.PI / 2) {
+                //第3象限，因为从左下绘制，所以需要将文字向下微调
+                textPaint.setTextAlign(Paint.Align.RIGHT);
+                canv.drawText(titles[i], x, y + fontHeight / 2, textPaint);
+            }
+        }
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         drawNgon(canvas);
         drawConnect(canvas);
+        drawText(canvas);
     }
 }
