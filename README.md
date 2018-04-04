@@ -6,7 +6,7 @@
 雷达图(蜘蛛网图)可以将各个成员的比重直观的展示出来，本项目实现了这个控件并进行封装，可以供有需要的同学直接拿来使用。  
 	
 ## 效果展示：   
-![error](https://raw.githubusercontent.com/talonerain/SyRadarView/master/screenshots/demo.png){:height="50%" width="50%"}
+<img width="250" height="500" src="https://raw.githubusercontent.com/talonerain/SyRadarView/master/screenshots/demo.png"/>
 
 ## 如何使用：
 - 在project的gradle中添加：
