@@ -47,10 +47,16 @@ public class SyRadarView extends View {
 
     public void setTextList(String[] strs) {
         this.mTexts = strs;
+        mSideCount = strs.length;
+        mAngle = (float) (Math.PI * 2 / mSideCount);
     }
 
     public void setPercentList(Double[] percents) {
         this.mPercents = percents;
+    }
+
+    public void setLayerCount(int count) {
+        this.mLayerCount = count > 0 ? count : 4;
     }
 
     public void setNgonPaint(Paint paint) {
@@ -138,9 +144,7 @@ public class SyRadarView extends View {
 
     private void init() {
         mCenter = new Point();
-        mSideCount = 6;
         mLayerCount = 4;
-        mAngle = (float) (Math.PI * 2 / mSideCount);
         initPaint();
     }
 

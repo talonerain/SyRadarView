@@ -6,10 +6,10 @@
 雷达图(蜘蛛网图)可以将各个成员的比重直观的展示出来，本项目实现了这个控件并进行封装，可以供有需要的同学直接拿来使用。  
 	
 ## 效果展示：   
-<img width="250" height="500" src="https://raw.githubusercontent.com/talonerain/SyRadarView/master/screenshots/demo.png"/>
+<img width="300" height="500" src="https://raw.githubusercontent.com/talonerain/SyRadarView/master/screenshots/demo.png"/>
 
 ## 如何使用：
-- 在project的gradle中添加：
+- step1 在project的gradle中添加：
 
 
 ```java
@@ -20,21 +20,32 @@
 		}
 	}
 ``` 
-- 在moudle的gradle中添加：
+- step2 在moudle的gradle中添加：
 
 ```java
 	dependencies {
 	        compile 'com.github.talonerain:SyRadarView:1.0.1'
 	}
 ```
-- 在布局中引用：
+- step3 在布局中引用：
 
 ```xml
 	<com.lsy.radarview.SyRadarView
-        android:id="@+id/radarView"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:textColor = "@color/colorAccent"
-        app:shadowAlpha = "200"/>
+	        android:id="@+id/radarView"
+	        android:layout_marginTop="30dp"
+	        android:layout_width="match_parent"
+	        android:layout_height="300dp"
+	        app:textColor = "@color/colorAccent"
+	        app:shadowAlpha = "200"/>
 ```
+- step4 设置数据源：
+
+```java
+	String[] texts = {};	//各成员名字
+	Double[] percents = {};	//各成员比重，用小数表示
+	radarView.setTextList(texts);  
+	radarView.setPercentList(percents);
+```
+
+##自定义样式
+- set

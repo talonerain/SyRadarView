@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -40,5 +41,6 @@ public class MainActivity extends Activity {
         Double[] percents = {0.82, 0.65, 0.72, 0.3, 0.5, 0.2};
         radarView.setTextList(texts);
         radarView.setPercentList(percents);
+        radarView.setTextColor(Color.BLUE);
     }
 }
