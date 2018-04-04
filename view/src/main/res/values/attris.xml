@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="style">
+        <attr name="ngonColor" format="integer" />
+        <attr name="ngonSize" format="float" />
+
+        <attr name="connLineColor" format="integer" />
+        <attr name="connLineSize" format="float"  />
+
+        <attr name="shadowColor" format="integer" />
+        <attr name="shadowAlpha" format="integer" />
+
+        <attr name="textColor" format="integer" />
+        <attr name="textSize" format="float"  />
+    </declare-styleable>
+</resources>
