@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/index.html)
 [![API](https://img.shields.io/badge/API-16%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=16)  
+
 雷达图(蜘蛛网图)可以将各个成员的比重直观的展示出来，本项目实现了这个控件并进行封装，可以供有需要的同学直接拿来使用。  
 	
 ## 效果展示：   
@@ -69,7 +70,8 @@ xmlns:syview="http://schemas.android.com/apk/res-auto"
 	- syRadarView.setLineSize(float size);
 	- syview:connLineSize=""
 - 阴影区域颜色：
-	- syRadarView.setShadowColor(int color);	- syview:shadowColor=""
+	- syRadarView.setShadowColor(int color);
+	- syview:shadowColor=""
 - 阴影区域透明度：
 	- syRadarView.setShadowAlpha(int alpha);
 	- syview:shadowAlpha=""
