@@ -11,7 +11,7 @@ demo下载地址：  [https://github.com/talonerain/SyRadarView/tree/master/demo
 <img width="300" height="500" src="https://raw.githubusercontent.com/talonerain/SyRadarView/master/screenshots/demo.png"/>
 
 ## 如何使用：
-###1. 在project的gradle中添加：
+### 1. 在project的gradle中添加：
 
 
 ```java
@@ -22,14 +22,14 @@ demo下载地址：  [https://github.com/talonerain/SyRadarView/tree/master/demo
 		}
 	}
 ``` 
-###2. 在moudle的gradle中添加：
+### 2. 在moudle的gradle中添加：
 
 ```java
 	dependencies {
 	        compile 'com.github.talonerain:SyRadarView:1.0.1'
 	}
 ```
-###3. 在布局中引用：
+### 3. 在布局中引用：
 
 ```xml
 	
@@ -42,7 +42,7 @@ demo下载地址：  [https://github.com/talonerain/SyRadarView/tree/master/demo
 	        app:textColor = "@color/colorAccent"
 	        app:shadowAlpha = "200"/>
 ```
-###4. 设置数据源：
+### 4. 设置数据源：
 
 ```java
 	String[] texts = {};	//各成员名字
@@ -51,7 +51,7 @@ demo下载地址：  [https://github.com/talonerain/SyRadarView/tree/master/demo
 	radarView.setPercentList(percents);
 ```
 
-##自定义样式
+## 自定义样式
 控件的样式都有默认值，如需自定义，可以在代码中设置，也可以通过自定义属性设置，后者需要在xml布局文件中引入名字空间：
 
 ```
