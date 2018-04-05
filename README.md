@@ -26,14 +26,12 @@ demo下载地址：  [https://github.com/talonerain/SyRadarView/tree/master/demo
 
 ```java
 	dependencies {
-	        compile 'com.github.talonerain:SyRadarView:1.0.1'
+	        compile 'com.github.talonerain:SyRadarView:1.0.2'
 	}
 ```
 ### 3. 在布局中引用：
 
 ```xml
-	
-	
 	<com.lsy.radarview.SyRadarView
 	        android:id="@+id/radarView"
 	        android:layout_marginTop="30dp"
